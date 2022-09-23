@@ -14,7 +14,13 @@ ARG NB_UID
 ENV USER ${NB_USER}
 ENV HOME /home/${NB_USER}
 
-USER ${NB_USER}
+RUN adduser --disabled-password \
+    --gecos "Default user" \
+    --uid ${NB_UID} \
+    ${NB_USER}
+WORKDIR ${HOME}
+USER ${USER}
+
 RUN cd ${HOME} && \
     git clone https://github.com/f66blog/binder_ifx.git && \
     cd binder_ifx  && \
