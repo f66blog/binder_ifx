@@ -27,6 +27,4 @@ RUN cd ${HOME} && \
     pip install --user ./jupyter-gfort-kernel  && \
     jupyter kernelspec install ./jupyter-gfort-kernel/gfort_spec --user 
 
-WORKDIR ${HOME}/binder_ifx_
-
-
+WORKDIR ${HOME}/binder_ifx
